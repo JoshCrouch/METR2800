@@ -1,13 +1,15 @@
 #include <Arduino.h>
+#include <Pins.h>
+#include <Adafruit_PWMServoDriver.h>
 
 void setup() {
-  pinMode(1, OUTPUT); //4.1
-  pinMode(43, OUTPUT); //4.2
-  pinMode(4, OUTPUT); //4.3
-  pinMode(6, OUTPUT); //4.4
+  //pinMode(LS11, OUTPUT); //4.1
+  //pinMode(LS12, OUTPUT); //4.2
+  //pinMode(LS13, OUTPUT); //4.3
+  //pinMode(LS14, OUTPUT); //4.4
 }
 
-int pins[] = {1,43,4,6};
+int pins[] = {LS11,LS12,LS13,LS14};
 
 void loop() {
   for (int i = 0; i < 4; i++){
