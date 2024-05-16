@@ -2,11 +2,10 @@
 #define _ARM_H
 #include <Adafruit_PWMServoDriver.h>
 
+/*!
+    @brief A struct
+*/
 struct Servo {
-    /*
-        Number: the pwm number of the servo
-        Speed: the speed of the servo (-100 to 100)
-    */
     int number;
     int speed;
 };
@@ -15,6 +14,7 @@ class Arm {
     private:
         Servo Rotation;
         Servo Extension;
+        Adafruit_PWMServoDriver * PWM;
 
         int LS1;
         int LS2;
@@ -24,7 +24,7 @@ class Arm {
         void setServoSpeed();
 
     public:
-        Arm();
+        Arm(int arm_number, Adafruit_PWMServoDriver * PWM, int RotationServoNumber, int ExtensionServoNumber);
         void setRotation(int dir, int speed);
         void setExtension(int dir, int speed);
 };

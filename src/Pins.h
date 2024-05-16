@@ -1,6 +1,8 @@
 #ifndef _PINS_H
 #define _PINS_H
 
+// USE GPIO NUMBER, NOT PIN NUMBER
+// COMMENTS ARE PHYSICAL PIN
 #define MIN1 0
 #define LS41 1
 #define LS11 2
@@ -22,17 +24,18 @@
 #define LS34 18 
 #define USB_N 19 
 #define USB_P 20 
-#define LS23 21 
+#define LS23 21
+// 22 - 37 DNE
 #define LS14 38
 #define LS51 39
 #define LS21 40
 #define LS52 41
-#define MIN2 42
+#define LS22 42
 #define LS42 43
 #define LS12 44
-#define LS63 45
-#define LS53 46
+#define MIN2 45
+#define LS63 46
 #define LS53 47
-#define MEN 48
+#define LSMEN 48
 
 #endif

@@ -1,11 +1,17 @@
 #include "Arm.h"
 #include "Pins.h"
+#include <Adafruit_PWMServoDriver.h>
 
 /*!
- *  @brief  Instantiates a new Arm, while taking the 
- *  @param  arm_number Number the arm is
+    @brief  Instantiates a new Arm
+    @param  arm_number Number the arm is
+    @param  PWM Address of the PWMServoDriver
+    @param  RotationServoNumber The PWM number for the Rotation Servo
+    @param  ExtensionServoNumber The PWM number for the Extension Servo
  */
-Arm::Arm(int arm_number) {
+Arm::Arm(int arm_number, Adafruit_PWMServoDriver *PWM, int RotationServoNumber, int ExtensionServoNumber) {
+
+    // Limit Switch Pin Assignment
     switch (arm_number) {
         case 1:
             this->LS1 = LS11;
@@ -38,4 +44,40 @@ Arm::Arm(int arm_number) {
             this->LS3 = LS63;
             this->LS4 = LS64;
     }
+
+    // Attach Interrupts
+
+    // Assign PWM driver
+    this->PWM = PWM;
+
+    // Set Servo Numbers
+    this->Rotation.number = RotationServoNumber;
+    this->Extension.number = ExtensionServoNumber;
+
+}
+
+
+void Arm::setServoSpeed() {
+    // Write servo speeds with 
+    this->PWM->setPWM(this->Extension.number, );
+    this->PWM->setPWM(this->Extension.number, );
+    
+}
+
+/*!
+    @brief Set the rotation servo speed and direction
+    @param dir The direction of the servo represented as either -1 or 1
+    @param speed The speed of the servo from 0 to 100
+*/
+void Arm::setRotation(int dir, int speed) {
+    this->Rotation.speed = dir * speed;
+}
+
+/*!
+    @brief Set the extension servo speed and direction
+    @param dir The direction of the servo represented as either -1 or 1
+    @param speed The speed of the servo from 0 to 100
+*/
+void Arm::setExtension(int dir, int speed) {
+    this->Extension.speed = dir * speed;
 }
