@@ -38,8 +38,10 @@ void stopAnt();
 
 void setup() {
   // Initialise the PWMServoDriver
-  startServoDriver();
   Serial.begin(115200);
+  Serial.print("begin");
+  startServoDriver();
+
   
   pinMode(LS41, INPUT);
   pinMode(LS42, INPUT);
@@ -113,9 +115,51 @@ void loop() {
   // Manage the servo direction based on the limit switch state
   manageServoDirection();
   delay(50); // Small delay to prevent too rapid switching
+
+  // Uncommented original loop logic adapted for array of arms
+  for (int i = 0; i < numArms; i++) {
+    arms[i].setRotation(0, 0);
+    arms[i].setExtension(1, 100);
+  }
+
+
+  if (digitalRead(LS41) == HIGH) {
+    for (int i = 0; i < numArms; i++) {
+      arms[i].setRotation(-1, 100);
+      arms[i].setExtension(0, 0);
+    }
+  
+  }
+  if (digitalRead(LS42) == HIGH) {
+    for (int i = 0; i < numArms; i++) {
+      arms[i].setRotation(1, 100);
+      arms[i].setExtension(0, 0);
+    }
+  }
+
+  delay(500);
+  Serial.println("Speed: 0");
+  for (int i = 0; i < numArms; i++) {
+    arms[i].setRotation(0, 0);
+    arms[i].setExtension(0, 0);
+  }
+  delay(1000);
+
+  Serial.println("Speed: 100");
+  for (int i = 0; i < numArms; i++) {
+    arms[i].setRotation(1, 100);
+    arms[i].setExtension(-1, 100);
+  }
+  delay(500);
+
+  Serial.println("Speed: 0");
+  for (int i = 0; i < numArms; i++) {
+    arms[i].setRotation(0, 0);
+    arms[i].setExtension(0, 0);
+  }
+  delay(1000);
 }
 
-// Interrupt Service Routines (ISRs) to stop the arms
 void stopExt() {
   for (int i = 0; i < numArms; i++) {
     arms[i].setExtension(0, 0);
@@ -143,46 +187,3 @@ void stopAnt() {
   }
   stopRotation = true;
 }
-
-// void loop() {
-//   arm1.setRotation(0, 0);
-//   //arm1.setExtension(1, 100);
-//    if (digitalRead(LS41) == HIGH) {
-//     arm1.setRotation(-1, 100);
-//   //   arm1.setExtension(0, 0);
-//   }
-//    if (digitalRead(LS42) == HIGH) {
-//      arm1.setRotation(1, 100);
-//   }
-  // delay (500);
-  //   Serial.println("Speed: 0");
-  //   arm1.setRotation(0, 0);
-  //  // arm1.setExtension(0, 0);
-  //   delay(1000);
-
-  //   Serial.println("Speed: 100");
-  //   arm1.setRotation(1, 100);
-  //   //arm1.setExtension(-1, 100);
-  //   delay(500);
-
-  //   Serial.println("Speed: 0");
-  //   arm1.setRotation(0, 0);
-  //   //arm1.setExtension(0, 0);
-  //   delay(1000);
-  
-// void stopExt(){
-//   arm1.setExtension(0,0);
-//   stopRotation = true;
-// }
-// void stopRet(){
-//   arm1.setExtension(0,0);
-//   stopRotation = true;
-// }
-// void stopClo(){
-//   arm1.setRotation(0,0);
-//   stopRotation = true;
-// }
-// void stopAnt(){
-//   arm1.setRotation(0,0);
-//   stopRotation = true;
-// }
