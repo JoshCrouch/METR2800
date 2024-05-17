@@ -100,138 +100,138 @@ void Arm::setExtension(int direction, int speed) {
 // LS4 - ROTHome
 
 // ARM1
-void LS11ISR() {
+void IRAM_ATTR LS11ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(OUT, 100);
     attachInterrupt(Arm4.LS3, LS43ISR, RISING);
 }
-void LS12ISR() {
+void IRAM_ATTR LS12ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
     delay(1000);
     Arm4.setRotation(STOP, 0);
     Arm4.setExtension(RETRACTION, 100);
 }
-void LS13ISR() {
+void IRAM_ATTR LS13ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
 }
-void LS14ISR() {
+void IRAM_ATTR LS14ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(STOP, 0);
     Arm4.detachAllInterrupts();
 }
 
 //ARM2
-void LS21ISR() {
+void IRAM_ATTR LS21ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(OUT, 100);
     attachInterrupt(Arm4.LS3, LS43ISR, RISING);
 }
-void LS22ISR() {
+void IRAM_ATTR LS22ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
     delay(1000);
     Arm4.setRotation(STOP, 0);
     Arm4.setExtension(RETRACTION, 100);
 }
-void LS23ISR() {
+void IRAM_ATTR LS23ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
 }
-void LS24ISR() {
+void IRAM_ATTR LS24ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(STOP, 0);
     Arm4.detachAllInterrupts();
 }
 
 // ARM3
-void LS31ISR() {
+void IRAM_ATTR LS31ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(OUT, 100);
     attachInterrupt(Arm4.LS3, LS43ISR, RISING);
 }
-void LS32ISR() {
+void IRAM_ATTR LS32ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
     delay(1000);
     Arm4.setRotation(STOP, 0);
     Arm4.setExtension(RETRACTION, 100);
 }
-void LS33ISR() {
+void IRAM_ATTR LS33ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
 }
-void LS34ISR() {
+void IRAM_ATTR LS34ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(STOP, 0);
     Arm4.detachAllInterrupts();
 }
 
 // ARM4
-void LS41ISR() {
+void IRAM_ATTR LS41ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(OUT, 100);
     attachInterrupt(Arm4.LS3, LS43ISR, RISING);
 }
-void LS42ISR() {
+void IRAM_ATTR LS42ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
     delay(1000);
     Arm4.setRotation(STOP, 0);
     Arm4.setExtension(RETRACTION, 100);
 }
-void LS43ISR() {
+void IRAM_ATTR LS43ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
 }
-void LS44ISR() {
+void IRAM_ATTR LS44ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(STOP, 0);
     Arm4.detachAllInterrupts();
 }
 
 // ARM5
-void LS51ISR() {
+void IRAM_ATTR LS51ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(OUT, 100);
     attachInterrupt(Arm4.LS3, LS43ISR, RISING);
 }
-void LS52ISR() {
+void IRAM_ATTR LS52ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
     delay(1000);
     Arm4.setRotation(STOP, 0);
     Arm4.setExtension(RETRACTION, 100);
 }
-void LS53ISR() {
+void IRAM_ATTR LS53ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
 }
-void LS54ISR() {
+void IRAM_ATTR LS54ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(STOP, 0);
     Arm4.detachAllInterrupts();
 }
 
 // ARM6
-void LS61ISR() {
+void IRAM_ATTR LS61ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(OUT, 100);
     attachInterrupt(Arm4.LS3, LS43ISR, RISING);
 }
-void LS62ISR() {
+void IRAM_ATTR LS62ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
     delay(1000);
     Arm4.setRotation(STOP, 0);
     Arm4.setExtension(RETRACTION, 100);
 }
-void LS63ISR() {
+void IRAM_ATTR LS63ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(IN, 100);
 }
-void LS64ISR() {
+void IRAM_ATTR LS64ISR() {
     Arm4.setExtension(STOP, 0);
     Arm4.setRotation(STOP, 0);
     Arm4.detachAllInterrupts();
