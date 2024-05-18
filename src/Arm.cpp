@@ -2,8 +2,10 @@
 #include "Pins.h"
 #include <Adafruit_PWMServoDriver.h>
 #include <ServoDriver.h>
+#include <Scheduler.h>
 
 Arm::Arm(int arm_number, int RotationServoNumber, int ExtensionServoNumber) {
+    this->arm_number = arm_number;
 
     // Limit Switch Pin Assignment
     switch (arm_number) {
@@ -55,4 +57,87 @@ void Arm::setRotation(int dir, int speed) {
 void Arm::setExtension(int dir, int speed) {
     this->Extension.speed = dir * speed;
     updateServoSpeed(this->Extension.number, this->Extension.speed);
+}
+
+void Arm::checkLimitSwitches() {
+    if (digitalRead(this->LS1) == HIGH && !this->LS1Hit) {
+        LS1Func();
+        this->LS1Hit = true;
+    }
+    if (digitalRead(this->LS2) == HIGH && !this->LS2Hit) {
+        LS2Func();
+        this->LS2Hit = true;
+    }
+    if (digitalRead(this->LS3) == HIGH && !this->LS3Hit) {
+        LS3Func();
+        this->LS3Hit = true;
+    }
+    if (digitalRead(this->LS4) == HIGH && !this->LS4Hit) {
+        LS4Func();
+        this->LS4Hit = true;
+    }
+}
+
+/*!
+    @brief Function to run when the extension limit switch is hit 
+*/
+void Arm::LS1Func() {
+    // Print Switch hit
+    Serial.print("Arm ");
+    Serial.print(this->arm_number);
+    Serial.print(", Extension Switch (1) hit!");
+    
+    // Stop extending
+    this->setExtension(STOP, 0);
+
+    // Go towards ball
+    this->setRotation(BALL, 100);
+}
+
+/*!
+    @brief Function to run when the cup limit switch is hit 
+*/
+void Arm::LS2Func() {
+    // Print Switch hit
+    Serial.print("Arm ");
+    Serial.print(this->arm_number);
+    Serial.print(", Cup Switch (2) hit!");
+    
+    // Start retracting
+    this->setExtension(RETRACTION, 100);
+
+    // Slowly rotate to home
+    this->setRotation(HOME, 5);
+}
+
+/*!
+    @brief Function to run when the retraction limit switch is hit 
+*/
+void Arm::LS3Func() {
+    // Print Switch hit
+    Serial.print("Arm ");
+    Serial.print(this->arm_number);
+    Serial.print(", Retraction Switch (3) hit!");
+    
+    // Stop retracting
+    this->setExtension(STOP, 0);
+
+    // Quickly rotate home
+    this->setRotation(HOME, 100);
+}
+
+/*!
+    @brief Function to run when the home limit switch is hit 
+*/
+void Arm::LS4Func() {
+    // Print Switch hit
+    Serial.print("Arm ");
+    Serial.print(this->arm_number);
+    Serial.print(", Home Switch (4) hit!");
+    
+    // Start retracting
+    this->setExtension(STOP, 0);
+
+    // Slowly rotate to home
+    this->setRotation(STOP, 0);
 }

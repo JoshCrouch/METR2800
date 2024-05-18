@@ -2,34 +2,47 @@
 #include <Pins.h>
 #include <Arm.h>
 #include <ServoDriver.h>
+#include <Scheduler.h>
 
-Arm arm1(1, 0, 2); // ROT 0, EXT, 1
+// Create each arm
+Arm Arm_1(1, 0, 1); // ROT 0, EXT, 1
+
+// Prototype functions so they can be referenced later on
+void startSequence();
+void Arm1StartUp();
+
 
 void setup() {
   // Initialise the PWMServoDriver
   startServoDriver();
+
+  // Initialise the serial terminal and wait for it to start
   Serial.begin(115200);
 
-  delay(10);
+  // Wait a second before starting
+  delay(1000);
+
+  // Run the initial startup sequence
+  void startSequence();
+}
+
+void startSequence() {
+  Arm_1.setRotation(BALL, 100);
+  Scheduler::schedule(6000, Arm1StartUp);
 }
 
 void loop() {
-  arm1.setRotation(-1, 100);
-  arm1.setExtension(1, 100);
-  delay(500);
+  // Check limit switches for each arm
+  Arm_1.checkLimitSwitches();
 
-  Serial.println("Speed: 0");
-  arm1.setRotation(0, 0);
-  arm1.setExtension(0, 0);
-  delay(500);
+  // Update the Scheduler
+  Scheduler::update();
+}
 
-  Serial.println("Speed: 100");
-  arm1.setRotation(1, 100);
-  arm1.setExtension(-1, 100);
-  delay(500);
+void Arm1StartUp() {
+    // Slowly rotate towards home to stop arm from falling
+    Arm_1.setRotation(HOME, 1);
 
-  Serial.println("Speed: 0");
-  arm1.setRotation(0, 0);
-  arm1.setExtension(0, 0);
-  delay(500);
+    // Begin Extension at full speed
+    Arm_1.setExtension(EXTENSION, 100);
 }

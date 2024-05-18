@@ -3,6 +3,12 @@
 #include <Adafruit_PWMServoDriver.h>
 #include <ServoDriver.h>
 
+#define BALL -1
+#define HOME 1
+#define EXTENSION -1
+#define RETRACTION 1
+#define STOP 0
+
 /*!
     @brief A struct to define servos
 
@@ -19,6 +25,8 @@ struct Servo {
 */
 class Arm {
     private:
+        int arm_number;
+
         Servo Rotation;
         Servo Extension;
 
@@ -26,6 +34,17 @@ class Arm {
         int LS2;
         int LS3;
         int LS4;
+
+        bool LS1Hit = false;
+        bool LS2Hit = false;
+        bool LS3Hit = false;
+        bool LS4Hit = false;
+
+        void LS1Func();
+        void LS2Func();
+        void LS3Func();
+        void LS4Func();
+
 
     public:
         /*!
@@ -49,8 +68,14 @@ class Arm {
             @param dir The direction of the servo represented as either -1 or 1
             @param speed The speed of the servo from 0 to 100
         */
-
         void setExtension(int dir, int speed);
+
+        /*!
+            @brief Polls every limit switch in the arm and calls related hit Func if hit
+        */
+        void checkLimitSwitches();
+
+        void startUp();
 };
 
 #endif
