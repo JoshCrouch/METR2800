@@ -6,7 +6,6 @@
 
 Adafruit_PWMServoDriver PWM(0x40, Wire);
 
-
 void startServoDriver() {
     Wire.begin(SDA, SCL);
     PWM.begin();

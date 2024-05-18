@@ -44,11 +44,6 @@ class Arm {
         Arm(int arm_number, int RotationServoNumber, int ExtensionServoNumber);
 
         /*!
-            @brief Detaches all of the limit switch interrupts
-        */
-        void detachAllInterrupts();
-
-        /*!
             @brief Set the rotation servo speed and direction
             @param direction The direction of the servo (CLOCKWISE or ANTICLOCKWISE)
             @param speed The speed of the servo from 0 to 100
