@@ -3,10 +3,10 @@
 #include <Adafruit_PWMServoDriver.h>
 #include <ServoDriver.h>
 
-#define OUT 1
-#define IN -1
-#define EXTENSION 1
-#define RETRACTION -1
+#define BALL -1
+#define HOME 1
+#define EXTENSION -1
+#define RETRACTION 1
 #define STOP 0
 
 /*!
@@ -25,15 +25,27 @@ struct Servo {
 */
 class Arm {
     private:
+        int arm_number;
+
         Servo Rotation;
         Servo Extension;
 
-    public:
         int LS1;
         int LS2;
         int LS3;
         int LS4;
 
+        bool LS1Hit = false;
+        bool LS2Hit = false;
+        bool LS3Hit = false;
+        bool LS4Hit = false;
+
+        void LS1Func();
+        void LS2Func();
+        void LS3Func();
+        void LS4Func();
+
+    public:
         /*!
             @brief  Instantiates a new Arm
             @param  arm_number Number the arm is
@@ -44,61 +56,25 @@ class Arm {
         Arm(int arm_number, int RotationServoNumber, int ExtensionServoNumber);
 
         /*!
-            @brief Detaches all of the limit switch interrupts
-        */
-        void detachAllInterrupts();
-
-        /*!
             @brief Set the rotation servo speed and direction
-            @param direction The direction of the servo (CLOCKWISE or ANTICLOCKWISE)
+            @param dir The direction of the servo represented as either -1 or 1
             @param speed The speed of the servo from 0 to 100
         */
-        void setRotation(int direction, int speed);
+        void setRotation(int dir, int speed);
 
         /*!
             @brief Set the extension servo speed and direction
-            @param direction The direction of the servo (CLOCKWISE or ANTICLOCKWISE)
+            @param dir The direction of the servo represented as either -1 or 1
             @param speed The speed of the servo from 0 to 100
         */
+        void setExtension(int dir, int speed);
 
-        void setExtension(int direction, int speed);
+        /*!
+            @brief Polls every limit switch in the arm and calls related hit Func if hit
+        */
+        void checkLimitSwitches();
+
+        void startUp();
 };
-
-extern Arm Arm1; // ROT 0, EXT, 1
-extern Arm Arm2; // ROT 0, EXT, 1
-extern Arm Arm3; // ROT 0, EXT, 1
-extern Arm Arm4; // ROT 0, EXT, 1
-extern Arm Arm5; // ROT 0, EXT, 1
-extern Arm Arm6; // ROT 0, EXT, 1
-
-void LS11ISR();
-void LS12ISR();
-void LS13ISR();
-void LS14ISR();
-
-void LS21ISR();
-void LS22ISR();
-void LS23ISR();
-void LS24ISR();
-
-void LS31ISR();
-void LS32ISR();
-void LS33ISR();
-void LS34ISR();
-
-void LS41ISR();
-void LS42ISR();
-void LS43ISR();
-void LS44ISR();
-
-void LS51ISR();
-void LS52ISR();
-void LS53ISR();
-void LS54ISR();
-
-void LS61ISR();
-void LS62ISR();
-void LS63ISR();
-void LS64ISR();
 
 #endif

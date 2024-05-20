@@ -2,15 +2,10 @@
 #include "Pins.h"
 #include <Adafruit_PWMServoDriver.h>
 #include <ServoDriver.h>
-
-Arm Arm1(1, 0, 2); // ROT 0, EXT, 1
-Arm Arm2(2, 0, 2); // ROT 0, EXT, 1
-Arm Arm3(3, 0, 2); // ROT 0, EXT, 1
-Arm Arm4(4, 0, 2); // ROT 0, EXT, 1
-Arm Arm5(5, 0, 2); // ROT 0, EXT, 1
-Arm Arm6(6, 0, 2); // ROT 0, EXT, 1
+#include <Scheduler.h>
 
 Arm::Arm(int arm_number, int RotationServoNumber, int ExtensionServoNumber) {
+    this->arm_number = arm_number;
 
     // Limit Switch Pin Assignment
     switch (arm_number) {
@@ -19,220 +14,139 @@ Arm::Arm(int arm_number, int RotationServoNumber, int ExtensionServoNumber) {
             this->LS2 = LS12;
             this->LS3 = LS13;
             this->LS4 = LS14;
-
-            attachInterrupt(this->LS1, LS11ISR, RISING);
-            attachInterrupt(this->LS2, LS12ISR, RISING);
-            attachInterrupt(this->LS4, LS14ISR, RISING);
         case 2:
             this->LS1 = LS21;
             this->LS2 = LS22;
             this->LS3 = LS23;
             this->LS4 = LS24;
-
-            attachInterrupt(this->LS1, LS21ISR, RISING);
-            attachInterrupt(this->LS2, LS22ISR, RISING);
-            attachInterrupt(this->LS4, LS24ISR, RISING);
         case 3:
             this->LS1 = LS31;
             this->LS2 = LS32;
             this->LS3 = LS33;
             this->LS4 = LS34;
-
-            attachInterrupt(this->LS1, LS31ISR, RISING);
-            attachInterrupt(this->LS2, LS32ISR, RISING);
-            attachInterrupt(this->LS4, LS34ISR, RISING);
         case 4:
             this->LS1 = LS41;
             this->LS2 = LS42;
             this->LS3 = LS43;
             this->LS4 = LS44;
-
-            attachInterrupt(this->LS1, LS41ISR, RISING);
-            attachInterrupt(this->LS2, LS42ISR, RISING);
-            attachInterrupt(this->LS4, LS44ISR, RISING);
         case 5:
             this->LS1 = LS51;
             this->LS2 = LS52;
             this->LS3 = LS53;
             this->LS4 = LS54;
-
-            attachInterrupt(this->LS1, LS51ISR, RISING);
-            attachInterrupt(this->LS2, LS52ISR, RISING);
-            attachInterrupt(this->LS4, LS54ISR, RISING);
         case 6:
             this->LS1 = LS61;
             this->LS2 = LS62;
             this->LS3 = LS63;
             this->LS4 = LS64;
-
-            attachInterrupt(this->LS1, LS61ISR, RISING);
-            attachInterrupt(this->LS2, LS62ISR, RISING);
-            attachInterrupt(this->LS4, LS64ISR, RISING);
-
-        break;
+        case 7:
+            this->LS1 = LS41;
+            this->LS2 = LS42;
+            this->LS3 = LS52;
+            this->LS4 = LS44;
     }
+
+    // Attach Interrupts
+    pinMode(this->LS1, INPUT);
+    pinMode(this->LS2, INPUT);
+    pinMode(this->LS3, INPUT);
+    pinMode(this->LS4, INPUT);
 
     // Set Servo Numbers
     this->Rotation.number = RotationServoNumber;
     this->Extension.number = ExtensionServoNumber;
+
 }
 
-void Arm::detachAllInterrupts() {
-    detachInterrupt(this->LS1);
-    detachInterrupt(this->LS2);
-    detachInterrupt(this->LS3);
-    detachInterrupt(this->LS4);
-}
-
-void Arm::setRotation(int direction, int speed) {
-    this->Rotation.speed = direction * speed;
+void Arm::setRotation(int dir, int speed) {
+    this->Rotation.speed = dir * speed;
     updateServoSpeed(this->Rotation.number, this->Rotation.speed);
 }
 
-void Arm::setExtension(int direction, int speed) {
-    this->Extension.speed = direction * speed;
+void Arm::setExtension(int dir, int speed) {
+    this->Extension.speed = dir * speed;
     updateServoSpeed(this->Extension.number, this->Extension.speed);
 }
 
-// LS1 - Extended
-// LS2 - Cup
-// LS3 - Retraction
-// LS4 - ROTHome
-
-// ARM1
-void IRAM_ATTR LS11ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(OUT, 100);
-    attachInterrupt(Arm4.LS3, LS43ISR, RISING);
-}
-void IRAM_ATTR LS12ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-    delay(1000);
-    Arm4.setRotation(STOP, 0);
-    Arm4.setExtension(RETRACTION, 100);
-}
-void IRAM_ATTR LS13ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-}
-void IRAM_ATTR LS14ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(STOP, 0);
-    Arm4.detachAllInterrupts();
+void Arm::checkLimitSwitches() {
+    if (digitalRead(this->LS1) == HIGH && !this->LS1Hit) {
+        LS1Func();
+        this->LS1Hit = true;
+    }
+    if (digitalRead(this->LS2) == HIGH && !this->LS2Hit && this->LS1Hit) {
+        LS2Func();
+        this->LS2Hit = true;
+    }
+    if (digitalRead(this->LS3) == HIGH && !this->LS3Hit && this->LS2Hit) {
+        LS3Func();
+        this->LS3Hit = true;
+    }
+    if (digitalRead(this->LS4) == HIGH && !this->LS4Hit && this->LS3Hit) {
+        LS4Func();
+        this->LS4Hit = true;
+    }
 }
 
-//ARM2
-void IRAM_ATTR LS21ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(OUT, 100);
-    attachInterrupt(Arm4.LS3, LS43ISR, RISING);
-}
-void IRAM_ATTR LS22ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-    delay(1000);
-    Arm4.setRotation(STOP, 0);
-    Arm4.setExtension(RETRACTION, 100);
-}
-void IRAM_ATTR LS23ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-}
-void IRAM_ATTR LS24ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(STOP, 0);
-    Arm4.detachAllInterrupts();
+/*!
+    @brief Function to run when the extension limit switch is hit 
+*/
+void Arm::LS1Func() {
+    // Print Switch hit
+    Serial.print("Arm ");
+    Serial.print(this->arm_number);
+    Serial.println(", Extension Switch (1) hit!");
+    
+    // Stop extending
+    this->setExtension(STOP, 0);
+
+    // Go towards ball
+    this->setRotation(BALL, 10);
 }
 
-// ARM3
-void IRAM_ATTR LS31ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(OUT, 100);
-    attachInterrupt(Arm4.LS3, LS43ISR, RISING);
-}
-void IRAM_ATTR LS32ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-    delay(1000);
-    Arm4.setRotation(STOP, 0);
-    Arm4.setExtension(RETRACTION, 100);
-}
-void IRAM_ATTR LS33ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-}
-void IRAM_ATTR LS34ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(STOP, 0);
-    Arm4.detachAllInterrupts();
+/*!
+    @brief Function to run when the cup limit switch is hit 
+*/
+void Arm::LS2Func() {
+    // Print Switch hit
+    Serial.print("Arm ");
+    Serial.print(this->arm_number);
+    Serial.println(", Cup Switch (2) hit!");
+    
+    // Start retracting
+    this->setExtension(RETRACTION, 100);
+
+    // Slowly rotate to home
+    this->setRotation(HOME, 5);
 }
 
-// ARM4
-void IRAM_ATTR LS41ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(OUT, 100);
-    attachInterrupt(Arm4.LS3, LS43ISR, RISING);
-}
-void IRAM_ATTR LS42ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-    delay(1000);
-    Arm4.setRotation(STOP, 0);
-    Arm4.setExtension(RETRACTION, 100);
-}
-void IRAM_ATTR LS43ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-}
-void IRAM_ATTR LS44ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(STOP, 0);
-    Arm4.detachAllInterrupts();
+/*!
+    @brief Function to run when the retraction limit switch is hit 
+*/
+void Arm::LS3Func() {
+    // Print Switch hit
+    Serial.print("Arm ");
+    Serial.print(this->arm_number);
+    Serial.println(", Retraction Switch (3) hit!");
+    
+    // Stop retracting
+    this->setExtension(RETRACTION, 20);
+
+    // Quickly rotate home
+    this->setRotation(HOME, 25);
 }
 
-// ARM5
-void IRAM_ATTR LS51ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(OUT, 100);
-    attachInterrupt(Arm4.LS3, LS43ISR, RISING);
-}
-void IRAM_ATTR LS52ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-    delay(1000);
-    Arm4.setRotation(STOP, 0);
-    Arm4.setExtension(RETRACTION, 100);
-}
-void IRAM_ATTR LS53ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-}
-void IRAM_ATTR LS54ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(STOP, 0);
-    Arm4.detachAllInterrupts();
-}
+/*!
+    @brief Function to run when the home limit switch is hit 
+*/
+void Arm::LS4Func() {
+    // Print Switch hit
+    Serial.print("Arm ");
+    Serial.print(this->arm_number);
+    Serial.println(", Home Switch (4) hit!");
+    
+    // Start retracting
+    this->setExtension(STOP, 0);
 
-// ARM6
-void IRAM_ATTR LS61ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(OUT, 100);
-    attachInterrupt(Arm4.LS3, LS43ISR, RISING);
-}
-void IRAM_ATTR LS62ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-    delay(1000);
-    Arm4.setRotation(STOP, 0);
-    Arm4.setExtension(RETRACTION, 100);
-}
-void IRAM_ATTR LS63ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(IN, 100);
-}
-void IRAM_ATTR LS64ISR() {
-    Arm4.setExtension(STOP, 0);
-    Arm4.setRotation(STOP, 0);
-    Arm4.detachAllInterrupts();
+    // Slowly rotate to home
+    this->setRotation(STOP, 0);
 }
