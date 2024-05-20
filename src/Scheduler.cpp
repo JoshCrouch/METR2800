@@ -28,9 +28,12 @@ int old_time = millis();
 void Scheduler::update()
 {
     unsigned long currentTime = millis();
+
+    #ifdef TEST_
     Serial.print("Scheduler Updated after ");
     Serial.print(old_time - currentTime);
     Serial.println(" milliseconds!");
+    #endif
 
     for (int i = 0; i < sizeof(Tasks) / sizeof(Tasks[0]); i++)
     {

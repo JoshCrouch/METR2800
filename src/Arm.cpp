@@ -39,9 +39,18 @@ Arm::Arm(int arm_number, int RotationServoNumber, int ExtensionServoNumber) {
             this->LS2 = LS62;
             this->LS3 = LS63;
             this->LS4 = LS64;
+        case 7:
+            this->LS1 = LS41;
+            this->LS2 = LS42;
+            this->LS3 = LS52;
+            this->LS4 = LS44;
     }
 
     // Attach Interrupts
+    pinMode(this->LS1, INPUT);
+    pinMode(this->LS2, INPUT);
+    pinMode(this->LS3, INPUT);
+    pinMode(this->LS4, INPUT);
 
     // Set Servo Numbers
     this->Rotation.number = RotationServoNumber;
@@ -64,15 +73,15 @@ void Arm::checkLimitSwitches() {
         LS1Func();
         this->LS1Hit = true;
     }
-    if (digitalRead(this->LS2) == HIGH && !this->LS2Hit) {
+    if (digitalRead(this->LS2) == HIGH && !this->LS2Hit && this->LS1Hit) {
         LS2Func();
         this->LS2Hit = true;
     }
-    if (digitalRead(this->LS3) == HIGH && !this->LS3Hit) {
+    if (digitalRead(this->LS3) == HIGH && !this->LS3Hit && this->LS2Hit) {
         LS3Func();
         this->LS3Hit = true;
     }
-    if (digitalRead(this->LS4) == HIGH && !this->LS4Hit) {
+    if (digitalRead(this->LS4) == HIGH && !this->LS4Hit && this->LS3Hit) {
         LS4Func();
         this->LS4Hit = true;
     }
@@ -85,13 +94,13 @@ void Arm::LS1Func() {
     // Print Switch hit
     Serial.print("Arm ");
     Serial.print(this->arm_number);
-    Serial.print(", Extension Switch (1) hit!");
+    Serial.println(", Extension Switch (1) hit!");
     
     // Stop extending
     this->setExtension(STOP, 0);
 
     // Go towards ball
-    this->setRotation(BALL, 100);
+    this->setRotation(BALL, 10);
 }
 
 /*!
@@ -101,7 +110,7 @@ void Arm::LS2Func() {
     // Print Switch hit
     Serial.print("Arm ");
     Serial.print(this->arm_number);
-    Serial.print(", Cup Switch (2) hit!");
+    Serial.println(", Cup Switch (2) hit!");
     
     // Start retracting
     this->setExtension(RETRACTION, 100);
@@ -117,13 +126,13 @@ void Arm::LS3Func() {
     // Print Switch hit
     Serial.print("Arm ");
     Serial.print(this->arm_number);
-    Serial.print(", Retraction Switch (3) hit!");
+    Serial.println(", Retraction Switch (3) hit!");
     
     // Stop retracting
-    this->setExtension(STOP, 0);
+    this->setExtension(RETRACTION, 20);
 
     // Quickly rotate home
-    this->setRotation(HOME, 100);
+    this->setRotation(HOME, 25);
 }
 
 /*!
@@ -133,7 +142,7 @@ void Arm::LS4Func() {
     // Print Switch hit
     Serial.print("Arm ");
     Serial.print(this->arm_number);
-    Serial.print(", Home Switch (4) hit!");
+    Serial.println(", Home Switch (4) hit!");
     
     // Start retracting
     this->setExtension(STOP, 0);

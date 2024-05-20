@@ -45,7 +45,6 @@ class Arm {
         void LS3Func();
         void LS4Func();
 
-
     public:
         /*!
             @brief  Instantiates a new Arm
