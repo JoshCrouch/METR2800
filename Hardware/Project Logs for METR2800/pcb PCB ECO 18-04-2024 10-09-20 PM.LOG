@@ -1,0 +1,14 @@
+Added Pin To Net: NetName=MEN Pin=U?-1
+Added Pin To Net: NetName=MIN1 Pin=U?-2
+Added Pin To Net: NetName=GND Pin=U?-4
+Added Pin To Net: NetName=GND Pin=U?-5
+Added Pin To Net: NetName=MIN2 Pin=U?-7
+Added Pin To Net: NetName=+3V3 Pin=U?-8
+Added Pin To Net: NetName=GND Pin=U?-12
+Added Pin To Net: NetName=GND Pin=U?-13
+Added Pin To Net: NetName=+7v Pin=U?-16
+Change Net Name : Old Net Name=NetJ213_1 New Net Name=MO2
+Change Net Name : Old Net Name=NetJ213_2 New Net Name=MO1
+Added Pin To Net: NetName=Output Pin=U?-3
+Added Pin To Net: NetName=Output Pin=U?-6
+Added Net: Name=Output

@@ -1,0 +1,138 @@
+Removed Pin From Net: NetName=L1.1 Pin=D302-2
+Removed Pin From Net: NetName=L1.1 Pin=D303-2
+Removed Pin From Net: NetName=L1.1 Pin=D304-2
+Removed Pin From Net: NetName=L1.1 Pin=D305-2
+Removed Pin From Net: NetName=L1.1 Pin=D306-2
+Removed Pin From Net: NetName=L1.1 Pin=D307-2
+Removed Pin From Net: NetName=L1.1 Pin=D308-2
+Removed Pin From Net: NetName=L1.1 Pin=D309-2
+Removed Pin From Net: NetName=L1.1 Pin=D310-2
+Removed Pin From Net: NetName=L1.1 Pin=D311-2
+Removed Pin From Net: NetName=L1.1 Pin=D312-2
+Removed Pin From Net: NetName=L1.1 Pin=D313-2
+Removed Pin From Net: NetName=L1.1 Pin=D314-2
+Removed Pin From Net: NetName=L1.1 Pin=D315-2
+Removed Pin From Net: NetName=L1.1 Pin=D316-2
+Removed Pin From Net: NetName=L1.1 Pin=D317-2
+Removed Pin From Net: NetName=L1.1 Pin=D318-2
+Removed Pin From Net: NetName=L1.1 Pin=D319-2
+Removed Pin From Net: NetName=L1.1 Pin=D320-2
+Removed Pin From Net: NetName=L1.1 Pin=D321-2
+Removed Pin From Net: NetName=L1.1 Pin=D322-2
+Removed Pin From Net: NetName=L1.1 Pin=D323-2
+Removed Pin From Net: NetName=L1.1 Pin=D324-2
+Removed Pin From Net: NetName=L1.1 Pin=D326-2
+Removed Pin From Net: NetName=L1.1 Pin=D327-2
+Removed Pin From Net: NetName=L1.1 Pin=J302-1
+Removed Pin From Net: NetName=L1.1 Pin=J303-1
+Removed Pin From Net: NetName=L1.1 Pin=J304-1
+Removed Pin From Net: NetName=L1.1 Pin=J305-1
+Removed Pin From Net: NetName=L1.1 Pin=J306-1
+Removed Pin From Net: NetName=L1.1 Pin=J307-1
+Removed Pin From Net: NetName=L1.1 Pin=J308-1
+Removed Pin From Net: NetName=L1.1 Pin=J309-1
+Removed Pin From Net: NetName=L1.1 Pin=J310-1
+Removed Pin From Net: NetName=L1.1 Pin=J311-1
+Removed Pin From Net: NetName=L1.1 Pin=J312-1
+Removed Pin From Net: NetName=L1.1 Pin=J313-1
+Removed Pin From Net: NetName=L1.1 Pin=J314-1
+Removed Pin From Net: NetName=L1.1 Pin=J315-1
+Removed Pin From Net: NetName=L1.1 Pin=J316-1
+Removed Pin From Net: NetName=L1.1 Pin=J317-1
+Removed Pin From Net: NetName=L1.1 Pin=J318-1
+Removed Pin From Net: NetName=L1.1 Pin=J319-1
+Removed Pin From Net: NetName=L1.1 Pin=J320-1
+Removed Pin From Net: NetName=L1.1 Pin=J321-1
+Removed Pin From Net: NetName=L1.1 Pin=J322-1
+Removed Pin From Net: NetName=L1.1 Pin=J323-1
+Removed Pin From Net: NetName=L1.1 Pin=J324-1
+Removed Pin From Net: NetName=L1.1 Pin=J326-1
+Removed Pin From Net: NetName=L1.1 Pin=J327-1
+Change Component Footprint: Designator=J201 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J202 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J203 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J204 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J205 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J206 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J207 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J208 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J209 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J210 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J211 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=J212 Old Footprint=FP-22-28-4035-MFG New Footprint=FP-22-28-4035-MFG
+Change Component Footprint: Designator=U? Old Footprint=FP-T22-0442-MFG New Footprint=FP-T22-0442-MFG
+Added Pin To Net: NetName=L1.2 Pin=D302-2
+Added Pin To Net: NetName=L1.2 Pin=J302-1
+Added Net: Name=L1.2
+Added Pin To Net: NetName=L1.3 Pin=D303-2
+Added Pin To Net: NetName=L1.3 Pin=J303-1
+Added Net: Name=L1.3
+Added Pin To Net: NetName=L1.4 Pin=D304-2
+Added Pin To Net: NetName=L1.4 Pin=J304-1
+Added Net: Name=L1.4
+Added Pin To Net: NetName=L2.1 Pin=D305-2
+Added Pin To Net: NetName=L2.1 Pin=J305-1
+Added Net: Name=L2.1
+Added Pin To Net: NetName=L2.2 Pin=D306-2
+Added Pin To Net: NetName=L2.2 Pin=J306-1
+Added Net: Name=L2.2
+Added Pin To Net: NetName=L2.3 Pin=D307-2
+Added Pin To Net: NetName=L2.3 Pin=J307-1
+Added Net: Name=L2.3
+Added Pin To Net: NetName=L2.4 Pin=D308-2
+Added Pin To Net: NetName=L2.4 Pin=J308-1
+Added Net: Name=L2.4
+Added Pin To Net: NetName=L3.1 Pin=D309-2
+Added Pin To Net: NetName=L3.1 Pin=J309-1
+Added Net: Name=L3.1
+Added Pin To Net: NetName=L3.2 Pin=D310-2
+Added Pin To Net: NetName=L3.2 Pin=J310-1
+Added Net: Name=L3.2
+Added Pin To Net: NetName=L3.3 Pin=D311-2
+Added Pin To Net: NetName=L3.3 Pin=J311-1
+Added Net: Name=L3.3
+Added Pin To Net: NetName=L3.4 Pin=D312-2
+Added Pin To Net: NetName=L3.4 Pin=J312-1
+Added Net: Name=L3.4
+Added Pin To Net: NetName=L4.1 Pin=D313-2
+Added Pin To Net: NetName=L4.1 Pin=J313-1
+Added Net: Name=L4.1
+Added Pin To Net: NetName=L4.2 Pin=D314-2
+Added Pin To Net: NetName=L4.2 Pin=J314-1
+Added Net: Name=L4.2
+Added Pin To Net: NetName=L4.3 Pin=D315-2
+Added Pin To Net: NetName=L4.3 Pin=J315-1
+Added Net: Name=L4.3
+Added Pin To Net: NetName=L4.4 Pin=D316-2
+Added Pin To Net: NetName=L4.4 Pin=J316-1
+Added Net: Name=L4.4
+Added Pin To Net: NetName=L5.1 Pin=D317-2
+Added Pin To Net: NetName=L5.1 Pin=J317-1
+Added Net: Name=L5.1
+Added Pin To Net: NetName=L5.2 Pin=D318-2
+Added Pin To Net: NetName=L5.2 Pin=J318-1
+Added Net: Name=L5.2
+Added Pin To Net: NetName=L5.3 Pin=D319-2
+Added Pin To Net: NetName=L5.3 Pin=J319-1
+Added Net: Name=L5.3
+Added Pin To Net: NetName=L5.4 Pin=D320-2
+Added Pin To Net: NetName=L5.4 Pin=J320-1
+Added Net: Name=L5.4
+Added Pin To Net: NetName=L6.1 Pin=D321-2
+Added Pin To Net: NetName=L6.1 Pin=J321-1
+Added Net: Name=L6.1
+Added Pin To Net: NetName=L6.2 Pin=D322-2
+Added Pin To Net: NetName=L6.2 Pin=J322-1
+Added Net: Name=L6.2
+Added Pin To Net: NetName=L6.3 Pin=D323-2
+Added Pin To Net: NetName=L6.3 Pin=J323-1
+Added Net: Name=L6.3
+Added Pin To Net: NetName=L6.4 Pin=D324-2
+Added Pin To Net: NetName=L6.4 Pin=J324-1
+Added Net: Name=L6.4
+Added Pin To Net: NetName=L7.1 Pin=D326-2
+Added Pin To Net: NetName=L7.1 Pin=J326-1
+Added Net: Name=L7.1
+Added Pin To Net: NetName=L7.2 Pin=D327-2
+Added Pin To Net: NetName=L7.2 Pin=J327-1
+Added Net: Name=L7.2

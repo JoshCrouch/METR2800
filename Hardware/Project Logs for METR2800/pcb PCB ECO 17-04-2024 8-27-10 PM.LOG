@@ -1,0 +1,36 @@
+Change Net Name : Old Net Name=S1.1 New Net Name=S0
+Change Net Name : Old Net Name=S6.2 New Net Name=S11
+Added Pin To Net: NetName=- Pin=J209-1
+Added Net: Name=-
+Added Pin To Net: NetName=S1 Pin=J202-1
+Added Pin To Net: NetName=S1 Pin=U201-7
+Added Net: Name=S1
+Added Pin To Net: NetName=S2 Pin=J203-1
+Added Pin To Net: NetName=S2 Pin=U201-8
+Added Net: Name=S2
+Added Pin To Net: NetName=S3 Pin=J204-1
+Added Pin To Net: NetName=S3 Pin=U201-9
+Added Net: Name=S3
+Added Pin To Net: NetName=S4 Pin=J205-1
+Added Pin To Net: NetName=S4 Pin=U201-10
+Added Net: Name=S4
+Added Pin To Net: NetName=S5 Pin=J206-1
+Added Pin To Net: NetName=S5 Pin=U201-11
+Added Net: Name=S5
+Added Pin To Net: NetName=S6 Pin=J207-1
+Added Pin To Net: NetName=S6 Pin=U201-12
+Added Net: Name=S6
+Added Pin To Net: NetName=S7 Pin=J208-1
+Added Pin To Net: NetName=S7 Pin=U201-13
+Added Net: Name=S7
+Added Pin To Net: NetName=S8 Pin=U201-15
+Added Net: Name=S8
+Added Pin To Net: NetName=S9 Pin=J210-1
+Added Pin To Net: NetName=S9 Pin=U201-16
+Added Net: Name=S9
+Added Pin To Net: NetName=S10 Pin=J211-1
+Added Pin To Net: NetName=S10 Pin=U201-17
+Added Net: Name=S10
+Added Member To Class: ClassName=MCU Member=Component C101 1u
+Added Member To Class: ClassName=MCU Member=Component R103 5K1
+Added Member To Class: ClassName=MCU Member=Component R105 5K1

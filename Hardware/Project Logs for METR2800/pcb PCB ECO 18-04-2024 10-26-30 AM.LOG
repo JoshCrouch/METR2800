@@ -1,0 +1,85 @@
+Change Component Designator: OldDesignator=S? NewDesignator=S1
+Added Pin To Net: NetName=L1.4 Pin=U101-36
+Added Pin To Net: NetName=L1.3 Pin=U101-37
+Added Pin To Net: NetName=L1.2 Pin=U101-38
+Added Pin To Net: NetName=L1.1 Pin=U101-39
+Added Pin To Net: NetName=+7v Pin=U202-8
+Added Member To Class: ClassName=Limit Switches Member=Component D301 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D302 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D303 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D304 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D305 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D306 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D307 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D308 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D309 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D310 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D311 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D312 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D313 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D314 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D315 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D316 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D317 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D318 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D319 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D320 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D321 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D322 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D323 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D324 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D326 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component D327 LTST-C190GKT
+Added Member To Class: ClassName=Limit Switches Member=Component J301 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J302 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J303 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J304 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J305 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J306 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J307 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J308 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J309 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J310 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J311 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J312 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J313 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J314 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J315 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J316 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J317 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J318 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J319 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J320 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J321 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J322 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J323 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J324 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J326 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component J327 B3B-XH-A(LF)(SN)
+Added Member To Class: ClassName=Limit Switches Member=Component R301 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R302 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R303 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R304 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R305 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R306 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R307 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R308 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R309 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R310 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R311 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R312 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R313 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R314 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R315 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R316 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R317 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R318 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R319 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R320 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R321 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R322 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R323 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R324 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R326 5K1
+Added Member To Class: ClassName=Limit Switches Member=Component R327 5K1
+Added Member To Class: ClassName=Power Member=Component R401 100K

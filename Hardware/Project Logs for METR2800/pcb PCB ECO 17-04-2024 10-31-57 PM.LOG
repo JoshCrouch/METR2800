@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=BATT Pin=D401-1
+Removed Pin From Net: NetName=BATT Pin=D401-2
+Removed Pin From Net: NetName=BATT Pin=F401-2
+Removed Pin From Net: NetName=BATT Pin=Q401-1
+Removed Pin From Net: NetName=BATT Pin=R401-2
+Added Pin To Net: NetName=+7v Pin=D401-1
+Added Pin To Net: NetName=+7v Pin=D401-2
+Added Pin To Net: NetName=+7v Pin=F401-2
+Added Pin To Net: NetName=+7v Pin=Q401-1
+Added Pin To Net: NetName=+7v Pin=R401-2
+Added Member To Class: ClassName=Power Member=Component C404 C2012X5R1V226M125AC
+Added Member To Class: ClassName=Power Member=Component C405 C2012X5R1V226M125AC
+Added Member To Class: ClassName=Power Member=Component C406 100n
+Added Member To Class: ClassName=Power Member=Component C407 1u
+Added Member To Class: ClassName=Power Member=Component C408 4u7
+Added Member To Class: ClassName=Power Member=Component C409 100n
